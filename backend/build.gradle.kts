@@ -20,6 +20,8 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webclient")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.core:jackson-annotations")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
 	testImplementation("org.springframework.boot:spring-boot-starter-webclient-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
