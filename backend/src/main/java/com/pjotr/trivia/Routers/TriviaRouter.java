@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
 @Configuration(proxyBeanMethods = false)
@@ -17,6 +18,8 @@ public class TriviaRouter {
   public RouterFunction<ServerResponse> route(TriviaHandler triviaHandler) {
 
     return RouterFunctions.route(GET("/questions")
-        .and(accept(MediaType.APPLICATION_JSON)), triviaHandler::fetchQuestions);
+            .and(accept(MediaType.APPLICATION_JSON)), triviaHandler::fetchQuestions)
+        .andRoute(POST("/checkanswers")
+            .and(accept(MediaType.APPLICATION_JSON)), triviaHandler::checkAnswers);
   }
 }

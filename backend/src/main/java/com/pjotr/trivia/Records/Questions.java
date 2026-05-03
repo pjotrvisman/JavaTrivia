@@ -21,6 +21,11 @@ public record Questions(
         return answers;
     }
 
+    @JsonIgnore
+    public String getCorrect_answer_hidden() {
+        return correct_answer;
+    }
+
     public String getCorrect_answer() {
         return null;
     }
