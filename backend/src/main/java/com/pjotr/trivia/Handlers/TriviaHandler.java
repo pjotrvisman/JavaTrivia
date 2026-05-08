@@ -66,7 +66,6 @@ public class TriviaHandler {
                             .bodyValue(Map.of("status", 400, "error", "No matching question found."));
                     }
 
-                    session.getAttributes().remove("lastCorrectAnswer");
                     return ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(Map.of("correct", correctAnswer.equals(answerRequest.getProvided_answer())));
